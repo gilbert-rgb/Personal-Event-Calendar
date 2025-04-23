@@ -1,0 +1,67 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "Team Meeting",
+      "date": "2025-04-24",
+      "location": "Zoom",
+      "description": "Quarterly team sync to discuss ongoing projects and goals."
+    },
+    {
+      "id": "3",
+      "title": "Birthday Party",
+      "date": "2025-05-05",
+      "location": "Jane's House, 123 Maple St.",
+      "description": "Celebrate Jane's 30th birthday with food, drinks, and games!"
+    },
+    {
+      "id": "4",
+      "title": "Conference Call",
+      "date": "2025-05-08",
+      "location": "Conference Room A",
+      "description": "Discussion with stakeholders regarding product launch."
+    },
+    {
+      "id": "5",
+      "title": "Yoga Class",
+      "date": "2025-04-29",
+      "location": "Yoga Studio, Downtown",
+      "description": "Relax and unwind in this calming yoga session."
+    },
+    {
+      "id": "6",
+      "title": "Workshop: React Basics",
+      "date": "2025-04-25",
+      "location": "Tech Hub, 45 Main St.",
+      "description": "A beginner's workshop on React.js fundamentals."
+    },
+    {
+      "id": "7",
+      "title": "Wedding",
+      "date": "2025-06-10",
+      "location": "Seaside Resort, Malibu",
+      "description": "Join us for a beautiful beachside wedding celebration."
+    },
+    {
+      "id": "8",
+      "title": "Project Deadline",
+      "date": "2025-04-30",
+      "location": "N/A",
+      "description": "Final day to submit the project report to the manager."
+    },
+    {
+      "id": "9",
+      "title": "Grocery Shopping",
+      "date": "2025-05-28",
+      "location": "SuperMart, 15th Ave.",
+      "description": "Buy groceries for the week — don't forget the milk!"
+    },
+    {
+      "id": "10",
+      "title": "Movie Night",
+      "date": "2025-04-27",
+      "location": "Cinema, Uptown",
+      "description": "Watching the latest superhero movie with friends."
+    }
+  ]
+}

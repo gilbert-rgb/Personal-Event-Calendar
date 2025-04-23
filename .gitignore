@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Log files
+*.log
+
+# Build output
+/build
+/dist
+
+# IDE configuration files
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# Operating system files
+.DS_Store
+Thumbs.db

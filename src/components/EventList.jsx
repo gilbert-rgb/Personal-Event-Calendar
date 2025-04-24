@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
-import { toast } from "react-toastify"; // Importing toast for error/success notifications
+import { toast } from "react-toastify";
 
 const EventList = () => {
-  const [events, setEvents] = useState([]); // Store events data
-  const [loading, setLoading] = useState(true); // State to track if data is still loading
-  const [error, setError] = useState(null); // State to track errors
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Fetch events from the server when the component mounts
   useEffect(() => {
     fetch("https://personal-event-calendar-5.onrender.com/events")
       .then((res) => {
@@ -17,23 +16,38 @@ const EventList = () => {
         return res.json();
       })
       .then((data) => {
-        setEvents(data); // Set events in the state
-        setLoading(false); // Set loading to false when data is fetched
+        setEvents(data);
+        setLoading(false);
       })
       .catch((err) => {
-        setError(err.message); // Set error if something goes wrong
-        setLoading(false); // Set loading to false even if there is an error
-        toast.error("Error fetching events: " + err.message); // Notify user of error
+        setError(err.message);
+        setLoading(false);
+        toast.error("Error fetching events: " + err.message);
       });
-  }, []); // Empty dependency array to run only once when component mounts
+  }, []);
 
-  // Loading and error handling in the UI
+  //  Update an event in state
+  const handleUpdateEvent = (updatedEvent) => {
+    setEvents((prevEvents) =>
+      prevEvents.map((event) =>
+        event.id === updatedEvent.id ? updatedEvent : event
+      )
+    );
+  };
+
+  //  Delete an event from state
+  const handleDeleteEvent = (eventId) => {
+    setEvents((prevEvents) =>
+      prevEvents.filter((event) => event.id !== eventId)
+    );
+  };
+
   if (loading) {
-    return <div>Loading events...</div>; // Show loading message while data is fetching
+    return <div>Loading events...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Show error message if there was an issue fetching
+    return <div>Error: {error}</div>;
   }
 
   return (
@@ -41,10 +55,15 @@ const EventList = () => {
       <h2 className="text-2xl mb-4">All Events</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {events.length === 0 ? (
-          <p>No events available.</p> // If there are no events, display this message
+          <p>No events available.</p>
         ) : (
           events.map((event) => (
-            <EventCard key={event.id} event={event} /> // Render each event
+            <EventCard
+              key={event.id}
+              event={event}
+              onEventUpdate={handleUpdateEvent} 
+              onEventDelete={handleDeleteEvent} 
+            />
           ))
         )}
       </div>

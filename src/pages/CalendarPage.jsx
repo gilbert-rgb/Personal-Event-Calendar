@@ -50,7 +50,7 @@ const CalendarPage = () => {
       cancelButtonText: "No, cancel!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:3000/events", {
+        fetch("http:personal-event-calendar-5.onrender.com/events", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

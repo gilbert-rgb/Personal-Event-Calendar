@@ -25,7 +25,7 @@ const AddEventPage = () => {
 
     // If validation passes, proceed with form submission
     try {
-      const res = await fetch("http://localhost:3000/events", {
+      const res = await fetch("https://personal-event-calendar-5.onrender.com/events", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

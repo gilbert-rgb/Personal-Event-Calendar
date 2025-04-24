@@ -9,7 +9,7 @@ const EventList = () => {
 
   // Fetch events from the server when the component mounts
   useEffect(() => {
-    fetch("http://localhost:3000/events")
+    fetch("https://personal-event-calendar-5.onrender.com/events")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch events");

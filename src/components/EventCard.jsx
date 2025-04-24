@@ -33,7 +33,7 @@ const EventCard = ({ event, onEventUpdate, onEventDelete }) => {
   // Handle event update (PATCH)
   const handleUpdate = () => {
     setLoading(true); // Show loading state
-    fetch(`http://localhost:3000/events/${event.id}`, {
+    fetch(`https://personal-event-calendar-5.onrender.com/events/${event.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const EventCard = ({ event, onEventUpdate, onEventDelete }) => {
       cancelButtonText: "No, cancel!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/events/${event.id}`, {
+        fetch(`https://personal-event-calendar-5.onrender.com/events/${event.id}`, {
           method: "DELETE",
         })
           .then(() => {

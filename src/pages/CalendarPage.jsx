@@ -15,7 +15,7 @@ const CalendarPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/events")
+    fetch("https://personal-event-calendar-5.onrender.com/events")
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched events:", data); // Optional debug log

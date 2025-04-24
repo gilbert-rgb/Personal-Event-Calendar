@@ -62,6 +62,18 @@
       "date": "2025-04-27",
       "location": "Cinema, Uptown",
       "description": "Watching the latest superhero movie with friends."
+    },
+    {
+      "id": "14c0",
+      "title": "",
+      "description": "",
+      "date": ""
+    },
+    {
+      "id": "a401",
+      "title": "coding",
+      "description": "midnight",
+      "date": "2025-04-25T22:50"
     }
   ]
 }

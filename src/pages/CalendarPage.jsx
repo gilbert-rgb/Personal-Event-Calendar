@@ -97,7 +97,7 @@ const CalendarPage = () => {
         {/* Calendar */}
         <Calendar onChange={handleDateChange} value={date} />
 
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col     ">
           <h2 className="text-2xl mb-2">Events on {date.toDateString()}</h2>
 
           {/* Search Bar */}

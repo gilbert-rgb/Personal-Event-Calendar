@@ -1,25 +1,11 @@
 {
   "events": [
     {
-      "id": "1",
-      "title": "Team Meeting",
-      "date": "2025-04-24",
-      "location": "Zoom",
-      "description": "Quarterly team sync to discuss ongoing projects and goals."
-    },
-    {
       "id": "3",
       "title": "Birthday Party",
       "date": "2025-05-05",
       "location": "Jane's House, 123 Maple St.",
       "description": "Celebrate Jane's 30th birthday with food, drinks, and games!"
-    },
-    {
-      "id": "4",
-      "title": "Conference Call",
-      "date": "2025-05-08",
-      "location": "Conference Room A",
-      "description": "Discussion with stakeholders regarding product launch."
     },
     {
       "id": "5",
@@ -55,12 +41,6 @@
       "date": "2025-04-27",
       "location": "Cinema, Uptown",
       "description": "Watching the latest superhero movie with friends."
-    },
-    {
-      "id": "6409",
-      "title": "brainstoming",
-      "description": "after class",
-      "date": "2025-04-16T08:23"
     }
   ]
 }

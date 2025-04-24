@@ -29,13 +29,6 @@
       "description": "Relax and unwind in this calming yoga session."
     },
     {
-      "id": "6",
-      "title": "Workshop: React Basics",
-      "date": "2025-04-25",
-      "location": "Tech Hub, 45 Main St.",
-      "description": "A beginner's workshop on React.js fundamentals."
-    },
-    {
       "id": "7",
       "title": "Wedding",
       "date": "2025-06-10",
@@ -64,16 +57,10 @@
       "description": "Watching the latest superhero movie with friends."
     },
     {
-      "id": "14c0",
-      "title": "",
-      "description": "",
-      "date": ""
-    },
-    {
-      "id": "a401",
-      "title": "coding",
-      "description": "midnight",
-      "date": "2025-04-25T22:50"
+      "id": "6409",
+      "title": "brainstoming",
+      "description": "after class",
+      "date": "2025-04-16T08:23"
     }
   ]
 }

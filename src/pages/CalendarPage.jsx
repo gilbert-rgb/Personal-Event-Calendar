@@ -2,41 +2,44 @@ import { useState, useEffect } from "react";
 import EventForm from "../components/EventForm";
 import EventList from "../components/EventList";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css"; 
+import "react-calendar/dist/Calendar.css";
 import EventCard from "../components/EventCard";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import the toast styles
-import { FaSearch } from "react-icons/fa"; // Import the search icon from react-icons
+import "react-toastify/dist/ReactToastify.css";
+import { FaSearch } from "react-icons/fa";
 
 const CalendarPage = () => {
   const [events, setEvents] = useState([]);
   const [date, setDate] = useState(new Date());
-  const [searchQuery, setSearchQuery] = useState(""); // New state for the search query
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3000/events")
       .then((res) => res.json())
-      .then((data) => setEvents(data));
+      .then((data) => {
+        console.log("Fetched events:", data); // Optional debug log
+        setEvents(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      });
   }, []);
 
-  // Handle date selection on the calendar
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
 
-  // Filter events for the selected date
   const eventsOnSelectedDate = events.filter((event) => {
-    const eventDate = new Date(event.date); // Assuming event has a `date` field
+    if (!event?.date) return false;
+    const eventDate = new Date(event.date);
     return eventDate.toDateString() === date.toDateString();
   });
 
-  // Filter events based on search query
   const filteredEvents = eventsOnSelectedDate.filter((event) => {
-    return event.title.toLowerCase().includes(searchQuery.toLowerCase()); // Assuming event has a `title` field
+    return event?.title?.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
-  // Add a new event to the list
   const handleEventAdd = (newEvent) => {
     Swal.fire({
       title: "Are you sure?",
@@ -84,18 +87,18 @@ const CalendarPage = () => {
   };
 
   return (
-    <div>
+    <div className="p-4">
       <h1 className="text-3xl font-semibold mb-4">Upcoming Events</h1>
 
       {/* Event Form */}
       <EventForm onEventAdd={handleEventAdd} />
 
-      <div className="flex gap-6 mt-6">
+      <div className="flex flex-col lg:flex-row gap-6 mt-6">
         {/* Calendar */}
         <Calendar onChange={handleDateChange} value={date} />
 
-        <div className="flex flex-col">
-          <h2 className="text-2xl">Events on {date.toDateString()}</h2>
+        <div className="flex-1 flex flex-col">
+          <h2 className="text-2xl mb-2">Events on {date.toDateString()}</h2>
 
           {/* Search Bar */}
           <div className="flex items-center border rounded p-2 mb-4">
@@ -109,6 +112,7 @@ const CalendarPage = () => {
             />
           </div>
 
+          {/* Filtered Event Cards */}
           <div className="grid grid-cols-1 gap-4">
             {filteredEvents.length > 0 ? (
               filteredEvents.map((event) => (
@@ -121,10 +125,10 @@ const CalendarPage = () => {
         </div>
       </div>
 
-      {/* Event List */}
+      {/* All Events List */}
       <EventList />
 
-      {/* Toast Container */}
+      {/* Toast Notifications */}
       <ToastContainer />
     </div>
   );
